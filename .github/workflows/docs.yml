@@ -1,0 +1,46 @@
+name: Docs
+
+on:
+  push:
+    paths:
+      - "**.md"
+      - ".github/workflows/docs.yml"
+      - ".markdownlint-cli2.yaml"
+      - ".typos.toml"
+  pull_request:
+    paths:
+      - "**.md"
+      - ".github/workflows/docs.yml"
+      - ".markdownlint-cli2.yaml"
+      - ".typos.toml"
+
+permissions:
+  contents: read
+
+jobs:
+  markdownlint:
+    name: Markdown lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: DavidAnson/markdownlint-cli2-action@v25.0.0
+        with:
+          globs: "**/*.md"
+
+  link-check:
+    name: Link check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: lycheeverse/lychee-action@v2
+        with:
+          args: --no-progress --verbose "**/*.md"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  spell-check:
+    name: Spell check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: crate-ci/typos@v1
