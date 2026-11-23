@@ -1,0 +1,13 @@
+[default]
+locale = "en-gb"
+extend-ignore-re = [
+  "analog",
+  "SITL",
+]
+
+[type.markdown]
+extend-glob = ["*.md"]
+extend-ignore-re = [
+  "(?s)```.*?```",
+  "`.*?`",
+]
