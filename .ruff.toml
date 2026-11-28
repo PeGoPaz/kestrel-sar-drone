@@ -1,0 +1,10 @@
+# Ruff configuration for Kestrel.
+target-version = "py311"
+line-length = 100
+
+[lint]
+select = ["E", "F", "I", "N", "UP", "B"]
+ignore = []
+
+[lint.per-file-ignores]
+"__init__.py" = ["F401"]
