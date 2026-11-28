@@ -1,0 +1,7 @@
+# Core Python toolchain for Kestrel (see README "Software stack").
+# Pinned for a reproducible environment.
+
+pymavlink==2.4.50
+mavsdk==4.3.0
+ultralytics==8.4.220
+folium==1.0.0

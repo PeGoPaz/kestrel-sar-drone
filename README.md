@@ -140,6 +140,18 @@ Planned phases: SITL simulation → build and learn to fly → autonomous waypoi
 
 ---
 
+## Development
+
+The Python toolchain is pinned in `requirements.txt` (runtime) and `requirements-dev.txt` (ruff + pre-commit). To recreate the environment:
+
+```bash
+./scripts/setup-dev.sh
+```
+
+This creates a virtualenv, installs the pinned dependencies, and installs the pre-commit hooks (ruff, markdownlint, and spell check) so they run on every commit.
+
+---
+
 ## Author
 
 Vladimir Rainov - BSc Computer Science, Griffith College Dublin.
